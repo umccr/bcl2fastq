@@ -1,0 +1,9 @@
+denv: 'dev'
+
+input_folder:
+  class: Directory
+  location: /Users/kanwals/Documents/UMCCR/data/bcl2fastq
+
+output_folder: 
+  class: Directory
+  location: /Users/kanwals/Documents/UMCCR/data/bcl2fastq

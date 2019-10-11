@@ -1,0 +1,9 @@
+denv: 'dev'
+
+samplesheet:
+  class: File
+  path: /Users/kanwals/Documents/UMCCR/data/bcl2fastq/SampleSheet.csv
+
+config:
+  class: Directory
+  location: /Users/kanwals/.config/gspread_pandas
