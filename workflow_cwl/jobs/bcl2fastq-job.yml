@@ -1,9 +1,13 @@
-denv: 'dev'
+denv: 'prod'
 
 input_folder:
   class: Directory
-  location: /Users/kanwals/Documents/UMCCR/data/bcl2fastq
+  location: /data/bcl
 
 output_folder: 
   class: Directory
-  location: /Users/kanwals/Documents/UMCCR/data/bcl2fastq
+  location: /data/bcl/output
+
+samplesheet:
+  class: File
+  path: /data/bcl/SampleSheet.csv.custom.1.10X

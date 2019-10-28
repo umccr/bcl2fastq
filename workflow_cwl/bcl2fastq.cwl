@@ -12,9 +12,6 @@ requirements:
   EnvVarRequirement:
     envDef:
       DEPLOY_ENV: $(inputs.denv)
-  InitialWorkDirRequirement:
-    listing:
-      - $(inputs.input_folder)
 
 inputs:
   denv: string

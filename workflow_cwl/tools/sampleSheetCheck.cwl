@@ -5,7 +5,7 @@ class: CommandLineTool
 
 hints:
  DockerRequirement:
-   dockerImageId: umccr/pipeline
+   dockerImageId: umccr/pipeline-cwl
 
 requirements:
   EnvVarRequirement:
@@ -14,8 +14,13 @@ requirements:
   InitialWorkDirRequirement:
     listing:
       - $(inputs.samplesheet)
+      - entry: $(inputs.outdir)
+        writable: true
 
-inputs:    
+inputs:
+  outdir: 
+    type: Directory
+    
   denv: string
 
   samplesheet:
@@ -35,7 +40,7 @@ outputs:
   split_samplesheets:
     type:
       type: array
-      items: File
+      items: [File, Directory]
     outputBinding:
       glob: "*"
 
