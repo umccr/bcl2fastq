@@ -43,7 +43,7 @@ outputs:
   log_out:
     type: stdout
 
-  split_samplesheets_fastq:
+  samplesheets_fastq:
     type:
       type: array
       items: File

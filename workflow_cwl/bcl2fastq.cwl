@@ -55,5 +55,18 @@ steps:
     out:
       [samplesheets_fastq]
 
-outputs: []
+outputs:
+  pipeline_split_samplesheets:
+    type:
+      type: array
+      items: File
+    outputSource: sampleSheetCheck/split_samplesheets
+
+  pipeline_result:
+    type:
+      type: array
+      items: 
+        type: array
+        items: File
+    outputSource: bcl2fastq/samplesheets_fastq
 
