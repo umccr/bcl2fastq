@@ -13,7 +13,7 @@ requirements:
       DEPLOY_ENV: $(inputs.denv)
   InitialWorkDirRequirement:
     listing:
-      - $(inputs.samplesheet)
+      - $(inputs.samplesheet_bcl2fastq)
       - entry: $(inputs.input_folder)
         writable: true
 
@@ -32,8 +32,8 @@ inputs:
       position: 3
       prefix: -o
   
-  samplesheet:
-    type: File
+  samplesheet_bcl2fastq:
+    type: [File, Directory]
     inputBinding:
       prefix: --sample-sheet
 
@@ -48,7 +48,7 @@ outputs:
       type: array
       items: File
     outputBinding:
-      glob: "*.fastq"
+      glob: "*.fastq.gz"
 
 stdout: bcl2fastq.log
 

@@ -14,12 +14,8 @@ requirements:
   InitialWorkDirRequirement:
     listing:
       - $(inputs.samplesheet)
-      - entry: $(inputs.outdir)
-        writable: true
 
 inputs:
-  outdir: 
-    type: Directory
     
   denv: string
 
@@ -40,9 +36,9 @@ outputs:
   split_samplesheets:
     type:
       type: array
-      items: [File, Directory]
+      items: File
     outputBinding:
-      glob: "*"
+      glob: "*[!.csv]"
 
 stdout: samplesheet-check.log
 

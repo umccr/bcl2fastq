@@ -8,6 +8,6 @@ output_folder:
   class: Directory
   location: /data/bcl/output
 
-samplesheet:
+samplesheet_bcl2fastq:
   class: File
   path: /data/bcl/SampleSheet.csv.custom.1.10X

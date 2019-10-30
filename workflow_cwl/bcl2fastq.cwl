@@ -12,13 +12,19 @@ requirements:
   EnvVarRequirement:
     envDef:
       DEPLOY_ENV: $(inputs.denv)
+#  InitialWorkDirRequirement:
+#    listing:
+#      - $(inputs.samplesheet)
+#      - entry: $(inputs.input_folder)
+#        writable: true
 
 inputs:
   denv: string
   input_folder: Directory
   samplesheet: File
   config: Directory
-  input_folder: Directory 
+  input_folder: Directory
+  output_folder: Directory
 
 steps:
   runFolderCheck:
@@ -27,29 +33,27 @@ steps:
       denv: denv
       input_folder: input_folder
     out:
-      - runFolderCheckLog
+      - log_out
 
   sampleSheetCheck:
     run: ./tools/sampleSheetCheck.cwl
     in:
       denv: denv
-      samplesheet: sampleshhet
+      samplesheet: samplesheet
       config: config
     out:
-      - [splitSampleSheets]
+      [split_samplesheets]
 
   bcl2fastq:
-    run: .tools/bcl2fastq.cwl
-    scatter: input_folder
+    run: ./tools/bcl2fastq.cwl
+    scatter: [samplesheet_bcl2fastq]
     in:
       denv: denv
-      input_folder: sampleSheetCheck/splitSampleSheets
+      input_folder: input_folder
       output_folder: output_folder
+      samplesheet_bcl2fastq: sampleSheetCheck/split_samplesheets
     out:
-      - [fastqs]
+      [samplesheets_fastq]
 
-outputs:
-  fatsqs:
-    type: File[]
-    outputSource: bcl2fastq/fastqs
+outputs: []
 
