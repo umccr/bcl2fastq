@@ -2,4 +2,4 @@ denv: 'prod'
 
 input_folder:
   class: Directory
-  location: /data/bcl/
+  location: /Users/kanwals/Documents/UMCCR/data/bcl2fastq/

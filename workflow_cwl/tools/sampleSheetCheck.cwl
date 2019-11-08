@@ -30,8 +30,6 @@ inputs:
       position: 2
 
 outputs:
-  log_out:
-    type: stdout
 
   split_samplesheets:
     type:
@@ -39,7 +37,5 @@ outputs:
       items: File
     outputBinding:
       glob: "*[!.csv]"
-
-stdout: samplesheet-check.log
 
 baseCommand: [python, /scripts/samplesheet-check.py]

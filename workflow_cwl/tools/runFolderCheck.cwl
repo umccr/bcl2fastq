@@ -5,7 +5,7 @@ class: CommandLineTool
 
 hints:
  DockerRequirement:
-   dockerImageId: umccr/pipeline-cwl
+   dockerImageId: umccr/pipeline
 
 requirements:
   EnvVarRequirement:
@@ -21,9 +21,10 @@ inputs:
       position: 1
 
 outputs:
-  log_out:
-    type: stdout
 
-stdout: runfolder-check.sh.log
+  log_out:
+    type: File
+    outputBinding:
+      glob: "*"
 
 baseCommand: [bash, /scripts/runfolder-check.sh]
